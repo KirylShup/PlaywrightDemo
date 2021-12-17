@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31919.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayWrightDemo", "PlayWrightDemo\PlayWrightDemo.csproj", "{472AA793-2CC3-451E-BC66-DEFB6D790B89}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		CHROME_STAG|Any CPU = CHROME_STAG|Any CPU
+		FIREFOX_STAG|Any CPU = FIREFOX_STAG|Any CPU
+		SAFARI_STAG|Any CPU = SAFARI_STAG|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{472AA793-2CC3-451E-BC66-DEFB6D790B89}.CHROME_STAG|Any CPU.ActiveCfg = CHROME_STAG|Any CPU
+		{472AA793-2CC3-451E-BC66-DEFB6D790B89}.CHROME_STAG|Any CPU.Build.0 = CHROME_STAG|Any CPU
+		{472AA793-2CC3-451E-BC66-DEFB6D790B89}.FIREFOX_STAG|Any CPU.ActiveCfg = FIREFOX_STAG|Any CPU
+		{472AA793-2CC3-451E-BC66-DEFB6D790B89}.FIREFOX_STAG|Any CPU.Build.0 = FIREFOX_STAG|Any CPU
+		{472AA793-2CC3-451E-BC66-DEFB6D790B89}.SAFARI_STAG|Any CPU.ActiveCfg = SAFARI_STAG|Any CPU
+		{472AA793-2CC3-451E-BC66-DEFB6D790B89}.SAFARI_STAG|Any CPU.Build.0 = SAFARI_STAG|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0E4AE5F5-462D-40C5-A043-F76D7C0D2193}
+	EndGlobalSection
+EndGlobal
