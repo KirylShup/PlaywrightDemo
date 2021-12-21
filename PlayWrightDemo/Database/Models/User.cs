@@ -13,5 +13,6 @@ namespace PlayWrightDemo.Database.Models
         public Guid OrganizationID { get; set; }
         public byte UserTypeID { get; set; }
         public virtual List<InviteToJoin> InvitationToJoin { get; set; }
+        public Organization Organization { get; set; }
     }
 }
