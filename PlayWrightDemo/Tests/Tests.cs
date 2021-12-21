@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using RestSharp;
 using PlayWrightDemo.Core;
 using System.Net;
+using PlayWrightDemo.DTO.Responses;
+using PlayWrightDemo.DTO.Requests;
 
 namespace PlayWrightDemo.Tests
 {
@@ -28,13 +30,24 @@ namespace PlayWrightDemo.Tests
         }
 
         [Test]
-        public async Task SampleOfAPITest()
+        public void SampleOfAPITest()
         {
-            var response = CoreClient.Instance("https://api-staging.app.constructconnect.com/entitlement/v2/organizations").Post(null);
-            Assert.IsTrue(response.StatusCode == HttpStatusCode.Unauthorized);
+            var token = CoreClient.Instance("https://login-staging.constructconnect.com/oauth/token").GetM2MToken();
+            Assert.IsTrue(token.RestResponse.StatusCode == HttpStatusCode.OK);
 
-            var tokenResponse = CoreClient.Instance("https://login-staging.constructconnect.com/oauth/token").GetToken();
-            Assert.IsTrue(tokenResponse.StatusCode == HttpStatusCode.OK);
+            var dto = new OrganizationRequestDto
+            {
+                Name = "ApiTestinOrg",
+                Address = "1916 Central Parkway",
+                Status = "Active",
+                City = "Cincinnati",
+                Country = "US",
+                Zip = "45202",
+                Phone = "8324431463",
+                State = "OH"
+            };
+            var organization = CoreClient.Instance("https://api-staging.app.constructconnect.com/entitlement/v2/organizations").Post<OrganizationResponseDto>(dto, true, token.Body.AccessToken);
+            Assert.IsTrue(organization.RestResponse.StatusCode == HttpStatusCode.Created);
         }
     }
 }

@@ -3,12 +3,14 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using PlayWrightDemo.DTO.Responses;
+using PlayWrightDemo.Configuration;
 
 namespace PlayWrightDemo.Core
 {
     public static class RestMethods
     {
-        public static IRestResponse Post (this CoreClient client, BaseDto body, (string key, string value) [] queryParameter = null, bool useToken = false, string authorizationToken = null)
+        public static Response<T> Post<T> (this CoreClient client, BaseDto body, bool useToken = false, string authorizationToken = null, (string key, string value) [] queryParameter = null) where T : class
         {
             var request = new RestRequest(Method.POST);
             if (body != null)
@@ -28,11 +30,12 @@ namespace PlayWrightDemo.Core
                 }
             }
 
-            if (!useToken)
+            if (useToken)
             {
                 if (authorizationToken != null)
                 {
-                    request.AddHeader("Authorization", "Bearer" + authorizationToken);
+                    request.AddHeader("Authorization", "Bearer " + authorizationToken);
+                    request.AddHeader("User", "AutoQA");
                 }
                 else
                 {
@@ -40,17 +43,17 @@ namespace PlayWrightDemo.Core
                 }
             }
 
-            return client.Execute(request);
+            return new Response<T> (client.Execute(request));
         }
-        public static IRestResponse GetToken(this CoreClient client)
+        public static Response<TokenDto> GetM2MToken(this CoreClient client)
         {
             var request = new RestRequest(Method.POST);
-            request.AddParameter("grant_type", "client_credentials");
-            request.AddParameter("audience", "https://api.services.constructconnect.com");
-            request.AddParameter("client_id", "place_here_clientId_From_Config");
-            request.AddParameter("client_secret", "place_here_clientSecret_From_Config");
+            request.AddParameter("grant_type", Configuration.Configuration.GrantType);
+            request.AddParameter("audience", Configuration.Configuration.Audience);
+            request.AddParameter("client_id", Configuration.Configuration.ClientIdBackOffice);
+            request.AddParameter("client_secret", Configuration.Configuration.ClientSecretBackOffice);
 
-            return client.Execute(request);
+            return new Response<TokenDto>(client.Execute(request));
         }
         public static IRestResponse Get (this CoreClient client, (string key, string value)[] queryParameter = null, bool useToken = false, string authorizationToken = null)
         {

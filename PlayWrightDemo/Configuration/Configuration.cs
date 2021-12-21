@@ -18,6 +18,18 @@ namespace PlayWrightDemo.Configuration
         [JsonProperty("entitlementsConnectionString")]
         public static string EntitlementsConnectionString { get; set; }
 
+        [JsonProperty("grantType")]
+        public static string GrantType { get; set; }
+
+        [JsonProperty("audience")]
+        public static string Audience { get; set; }
+
+        [JsonProperty("clientId_BackOffice")]
+        public static string ClientIdBackOffice { get; set; }
+
+        [JsonProperty("clientSecret_BackOffice")]
+        public static string ClientSecretBackOffice { get; set; }
+
 
         public static void InitiateConfigurationFile()
         {
@@ -27,6 +39,10 @@ namespace PlayWrightDemo.Configuration
             Environment = config["AppSettings:environment"];
             Url = config["AppSettings:url"];
             EntitlementsConnectionString = config["AppSettings:entitlementsConnectionString"];
+            GrantType = config["AppSettings:grantType"];
+            Audience = config["AppSettings:audience"];
+            ClientIdBackOffice = config["AppSettings:clientId_BackOffice"];
+            ClientSecretBackOffice = config["AppSettings:clientSecret_BackOffice"];
         }
     }
 }
