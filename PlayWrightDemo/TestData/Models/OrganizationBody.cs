@@ -34,10 +34,10 @@ namespace PlayWrightDemo.TestData.Models
             Name = RandomHelper.GetRandomAlphanumericalString(30) + "_auomation";
             Status = "Active";
             Address = RandomHelper.GetRandomAlphanumericalString(20) + "_automation";
-            City = "Orlando";
-            State = "Florida";
-            Zip = "10074";
-            Phone = "";
+            City = "Cincinnati";
+            State = "OH";
+            Zip = "45202";
+            Phone = RandomHelper.GetRandomNumericalString(13);
             Country = "US";
         }
     }
