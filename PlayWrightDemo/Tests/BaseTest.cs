@@ -1,6 +1,5 @@
 ﻿using Microsoft.Playwright;
 using NUnit.Framework;
-using PlayWrightDemo.Configuration;
 using PlayWrightDemo.Core;
 using System.Threading.Tasks;
 

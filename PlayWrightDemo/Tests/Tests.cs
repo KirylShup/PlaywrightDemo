@@ -9,6 +9,8 @@ using PlayWrightDemo.Core;
 using System.Net;
 using PlayWrightDemo.DTO.Responses;
 using PlayWrightDemo.DTO.Requests;
+using FluentAssertions;
+using PlayWrightDemo.TestData;
 
 namespace PlayWrightDemo.Tests
 {
@@ -18,12 +20,13 @@ namespace PlayWrightDemo.Tests
         [Test]
         public async Task SampleOfUITest()
         {
+            var user = UserData.GetUser("stagingUser");
             var loginPage = new LoginPage(page);
             await loginPage.NavigateByURL();
-            var usersPage = loginPage.Login("kiryl_user_75950929@mail.com", "CConnect123").Result;
+            var usersPage = loginPage.Login(user.Email, user.DefaultPassword).Result;
             await usersPage.InviteNewUser("Kiryl", "Shupenich", "ks_playwright_test4@mailinator.com");
             using var dbContext = new EntitlementsContext(entitlementsConnectionString);
-            var userRecord = dbContext.User.Include(u => u.InvitationToJoin).Where(x => x.EmailAddress == "kiryl_user_75950929@mail.com").FirstOrDefault();
+            var userRecord = dbContext.User.Include(u => u.InvitationToJoin).Where(x => x.EmailAddress == user.Email).FirstOrDefault();
             var organizationRecord = dbContext.Organization.Include(x => x.User).Where(x => x.OrganizationID == userRecord.OrganizationID).FirstOrDefault();
             var organizationModuleRecord = dbContext.OrganizationModule.Include(x => x.Organization).Where(x => x.OrganizationID == organizationRecord.OrganizationID).FirstOrDefault();
             Assert.NotNull(organizationModuleRecord);
@@ -32,7 +35,7 @@ namespace PlayWrightDemo.Tests
         [Test]
         public void SampleOfAPITest()
         {
-            var token = CoreClient.Instance("https://login-staging.constructconnect.com/oauth/token").GetM2MToken();
+            var token = CoreClient.Instance(Configuration.Configuration.AuthUrlStaging).GetM2MToken();
             Assert.IsTrue(token.RestResponse.StatusCode == HttpStatusCode.OK);
 
             var dto = new OrganizationRequestDto
@@ -46,8 +49,9 @@ namespace PlayWrightDemo.Tests
                 Phone = "8324431463",
                 State = "OH"
             };
-            var organization = CoreClient.Instance("https://api-staging.app.constructconnect.com/entitlement/v2/organizations").Post<OrganizationResponseDto>(dto, true, token.Body.AccessToken);
+            var organization = CoreClient.Instance(Configuration.Configuration.EntitlementsUrlStaging + @"/organizations").Post<OrganizationResponseDto>(dto, true, token.Body.AccessToken);
             Assert.IsTrue(organization.RestResponse.StatusCode == HttpStatusCode.Created);
+            organization.RestResponse.StatusCode.Should().Be(HttpStatusCode.Created);
         }
     }
 }

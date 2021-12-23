@@ -1,14 +1,11 @@
 ﻿using Microsoft.Playwright;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace PlayWrightDemo.Pages
 {
     public class UsersPage : BasePage
     {
-        public override string URL => $"{Configuration.Configuration.Url}" + "/users";
+        public override string URL => $"{Configuration.Configuration.SelfServicePortalUrl}" + "/users";
 
         public override IPage Page { get; set; }
         public override IBrowser Browser { get; set; }

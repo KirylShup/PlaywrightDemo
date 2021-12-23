@@ -1,9 +1,10 @@
 ﻿using Newtonsoft.Json;
+using PlayWrightDemo.Utils;
 
-namespace PlayWrightDemo.DTO.Requests
+namespace PlayWrightDemo.TestData.Models
 {
-    public class OrganizationRequestDto : BaseDto
-    {     
+    public class OrganizationBody : BaseDto
+    {
         [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
         public string Name { get; set; }
 
@@ -27,6 +28,17 @@ namespace PlayWrightDemo.DTO.Requests
 
         [JsonProperty("country", NullValueHandling = NullValueHandling.Ignore)]
         public string Country { get; set; }
+
+        public OrganizationBody()
+        {
+            Name = RandomHelper.GetRandomAlphanumericalString(30) + "_auomation";
+            Status = "Active";
+            Address = RandomHelper.GetRandomAlphanumericalString(20) + "_automation";
+            City = "Orlando";
+            State = "Florida";
+            Zip = "10074";
+            Phone = "";
+            Country = "US";
+        }
     }
 }
-

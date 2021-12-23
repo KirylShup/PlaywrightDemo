@@ -6,7 +6,7 @@ namespace PlayWrightDemo.Pages
 {
     public class LoginPage : BasePage
     {
-        public override string URL => Configuration.Configuration.Url;
+        public override string URL => Configuration.Configuration.SelfServicePortalUrl;
 
         public override IPage Page { get; set; }
         public override IBrowser Browser { get; set; }

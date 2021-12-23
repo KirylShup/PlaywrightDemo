@@ -1,15 +1,13 @@
 ﻿using Newtonsoft.Json;
 using RestSharp;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace PlayWrightDemo.Core
 {
     public class Response <T> where T : class
     {
-        public T Body { get; set; }
-        public IRestResponse RestResponse { get; set; }
+        public T Body { get; private set; }
+        public IRestResponse RestResponse { get; private set; }
         public Response(IRestResponse restResponse)
         {
             RestResponse = restResponse;
@@ -17,7 +15,7 @@ namespace PlayWrightDemo.Core
             {
                 Body = JsonConvert.DeserializeObject<T>(restResponse.Content);
             }
-            catch (Exception ex) { }
+            catch (Exception) { }
         }
 
     }
