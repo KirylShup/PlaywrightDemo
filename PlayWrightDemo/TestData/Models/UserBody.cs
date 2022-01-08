@@ -22,9 +22,9 @@ namespace PlayWrightDemo.TestData.Models
 
         public UserBody()
         {
-            FirstName = "automationUser" + RandomHelper.GetRandomNumericalString(5);
-            LastName = "automationUser" + RandomHelper.GetRandomNumericalString(5);
-            Email = RandomHelper.GetRandomAlphanumericalString(8) + "@" + "testing.epam.mail.com";
+            FirstName = "automationUser" + RandomStringHelper.GetRandomNumericalString(5);
+            LastName = "automationUser" + RandomStringHelper.GetRandomNumericalString(5);
+            Email = RandomStringHelper.GetRandomAlphanumericalString(8) + "@" + "testing.epam.mail.com";
             Status = "Active";
         }
     }

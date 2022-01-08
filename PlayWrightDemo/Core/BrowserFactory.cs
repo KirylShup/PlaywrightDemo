@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Microsoft.Playwright;
+using NUnit.Framework;
+using PlayWrightDemo.Utils;
 
 namespace PlayWrightDemo.Core
 {
@@ -43,10 +45,24 @@ namespace PlayWrightDemo.Core
             return browser;
         }
 
-        public static async Task QuitBrowser()
+        public static async Task QuitBrowser(IPage page)
         {
-            await browser.CloseAsync();
-            browser = null;
+            try 
+            { 
+                if (TestsHelper.IsTestFailed())
+                {
+                    await page.ScreenshotAsync(new PageScreenshotOptions 
+                    { 
+                        Type = ScreenshotType.Png,
+                        Path = TestsHelper.CreateScreenshotFolder() + $"{TestContext.CurrentContext.Test.MethodName}_{RandomStringHelper.GetStringWithCurrentDate()}.png"
+                    });
+                }
+            }
+            finally 
+            {
+                await browser.CloseAsync();
+                browser = null;
+            }
         }
     }
 }

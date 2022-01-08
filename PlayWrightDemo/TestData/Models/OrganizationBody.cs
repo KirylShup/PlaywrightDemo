@@ -31,13 +31,13 @@ namespace PlayWrightDemo.TestData.Models
 
         public OrganizationBody()
         {
-            Name = RandomHelper.GetRandomAlphanumericalString(30) + "_auomation";
+            Name = RandomStringHelper.GetRandomAlphanumericalString(30) + "_auomation";
             Status = "Active";
-            Address = RandomHelper.GetRandomAlphanumericalString(20) + "_automation";
+            Address = RandomStringHelper.GetRandomAlphanumericalString(20) + "_automation";
             City = "Cincinnati";
             State = "OH";
             Zip = "45202";
-            Phone = RandomHelper.GetRandomNumericalString(13);
+            Phone = RandomStringHelper.GetRandomNumericalString(13);
             Country = "US";
         }
     }

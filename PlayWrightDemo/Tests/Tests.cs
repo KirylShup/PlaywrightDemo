@@ -4,11 +4,8 @@ using PlayWrightDemo.Database;
 using PlayWrightDemo.Pages;
 using System.Linq;
 using System.Threading.Tasks;
-using RestSharp;
 using PlayWrightDemo.Core;
 using System.Net;
-using PlayWrightDemo.DTO.Responses;
-using PlayWrightDemo.DTO.Requests;
 using FluentAssertions;
 using PlayWrightDemo.TestData;
 using PlayWrightDemo.TestData.Models;
@@ -17,7 +14,7 @@ using PlayWrightDemo.APIRepository.Endpoints;
 namespace PlayWrightDemo.Tests
 {
     [TestFixture]
-    public class Tests : BaseTest
+    public class Tests : BaseTestUI
     {
         [Test]
         public async Task SampleOfUITest()

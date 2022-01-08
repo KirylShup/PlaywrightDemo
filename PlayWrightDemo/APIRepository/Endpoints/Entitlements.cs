@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using PlayWrightDemo.Configuration;
-using PlayWrightDemo.Core;
+﻿using PlayWrightDemo.Core;
 using PlayWrightDemo.DTO.Responses;
 
 namespace PlayWrightDemo.APIRepository.Endpoints

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace PlayWrightDemo.Tests
 {
     [TestFixture]
-    public class BaseTest
+    public class BaseTestUI
     {
         protected IBrowser browser;
         protected IBrowserContext context;
@@ -18,15 +18,18 @@ namespace PlayWrightDemo.Tests
         {
             Configuration.Configuration.InitiateConfigurationFile();
             browser = await BrowserFactory.Instance();
-            context = await browser.NewContextAsync(new BrowserNewContextOptions { ViewportSize = new ViewportSize { Width = 1980, Height = 1080 } });
+            context = await browser.NewContextAsync(new BrowserNewContextOptions 
+            { 
+                ViewportSize = new ViewportSize { Width = 1980, Height = 1080 } 
+            });
             page = await context.NewPageAsync();
             entitlementsConnectionString = Configuration.Configuration.EntitlementsConnectionString;
         }
 
         [TearDown]
-        public static async Task Teardown()
+        public async Task Teardown()
         {
-            await BrowserFactory.QuitBrowser();
+            await BrowserFactory.QuitBrowser(page);
         }
     }
 }
