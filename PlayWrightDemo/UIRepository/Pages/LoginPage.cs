@@ -12,14 +12,6 @@ namespace PlayWrightDemo.Pages
         public override IBrowser Browser { get; set; }
         public override IBrowserContext Context { get; set; }
 
-        public LoginPage(IBrowser browser)
-        {
-            Browser = browser;
-        }
-        public LoginPage(IBrowserContext context)
-        {
-            Context = context;
-        }
         public LoginPage(IPage page)
         {
             Page = page;

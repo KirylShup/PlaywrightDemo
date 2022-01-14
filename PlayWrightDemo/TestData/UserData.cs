@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace PlayWrightDemo.TestData
 {
-    public class UserData
+    public static class UserData
     {
         private static Dictionary<string, UserBody> User = new Dictionary<string, UserBody>()
         {

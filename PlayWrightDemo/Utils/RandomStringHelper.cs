@@ -30,7 +30,7 @@ namespace PlayWrightDemo.Utils
         public static string GetStringWithCurrentDate()
         {
             string currentDate = DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss");
-            currentDate = Regex.Replace(currentDate, "[^0-9]", "_"); // Replaces all chars except digits in date-string;
+            currentDate = Regex.Replace(currentDate, "[^0-9]", "_");
             return currentDate; 
         }
     }
