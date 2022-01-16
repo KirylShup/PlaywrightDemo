@@ -7,6 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="allure-reports\**" />
+    <Compile Remove="allure-results\**" />
+    <EmbeddedResource Remove="allure-reports\**" />
+    <EmbeddedResource Remove="allure-results\**" />
+    <None Remove="allure-reports\**" />
+    <None Remove="allure-results\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="6.3.0" />
     <PackageReference Include="FluentAssertions.Json" Version="6.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.12" />
@@ -43,6 +52,9 @@
   </ItemGroup>
 
 	<ItemGroup>
+		<None Update="allureConfig.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
 		<None Update="Configuration\appsettings.json">
 			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
 		</None>

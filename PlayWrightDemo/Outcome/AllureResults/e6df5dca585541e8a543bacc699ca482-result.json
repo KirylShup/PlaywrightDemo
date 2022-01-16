@@ -1,0 +1,64 @@
+{
+  "uuid": "6f8ee6fa-204a-46bb-a032-c33acba2b6a8-tr-0-1003",
+  "historyId": "PlayWrightDemo.Tests.TestsApi.SampleOfAPITest",
+  "fullName": "PlayWrightDemo.Tests.TestsApi.SampleOfAPITest",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "ParallelWorker#2"
+    },
+    {
+      "name": "host",
+      "value": "EPBYMINW5427"
+    },
+    {
+      "name": "package",
+      "value": "PlayWrightDemo.Tests"
+    },
+    {
+      "name": "testMethod",
+      "value": "SampleOfAPITest"
+    },
+    {
+      "name": "testClass",
+      "value": "TestsApi"
+    }
+  ],
+  "links": [],
+  "name": "SampleOfAPITest",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "SampleOfAPITest"
+  },
+  "stage": "finished",
+  "steps": [
+    {
+      "name": "SampleOfAPITest",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "b5c72e7c7b3c47319c30ec0e1089dc8b-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1642184327595,
+      "stop": 1642184330334
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1642184327595,
+  "stop": 1642184330341
+}

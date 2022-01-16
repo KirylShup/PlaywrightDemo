@@ -22,6 +22,7 @@ namespace PlayWrightDemo.Tests
         {
             Configuration.Configuration.InitiateConfigurationFile();
             entitlementsConnectionString = Configuration.Configuration.EntitlementsConnectionString;
+            Allure.Commons.AllureLifecycle.Instance.CleanupResultDirectory();
 
             browser = await BrowserFactory.Instance();
             context = await browser.NewContextAsync(new BrowserNewContextOptions 

@@ -1,13 +1,19 @@
-﻿using FluentAssertions;
+﻿using Allure.Commons;
+using FluentAssertions;
+using NUnit.Allure.Attributes;
+using NUnit.Allure.Core;
 using NUnit.Framework;
 using PlayWrightDemo.APIRepository.Endpoints;
 using PlayWrightDemo.Core;
 using PlayWrightDemo.TestData.Models;
 using System.Net;
 
+
 namespace PlayWrightDemo.Tests
 {
     [TestFixture]
+    [AllureNUnit]
+    [Parallelizable(ParallelScope.All)]
     public class TestsApi : BaseTestApi
     {
         [Test]
