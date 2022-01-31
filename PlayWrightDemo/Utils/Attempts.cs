@@ -5,7 +5,7 @@ namespace PlayWrightDemo.Utils
 {
     public static class Attempts
     {
-        public static T TryUnitl<T, TResult>(Func<T> resultObj, Func<T, TResult> condition, int delay, int timeout) where T : class
+        public static T TryUntil<T, TResult>(Func<T> resultObj, Func<T, TResult> condition, int delay, int timeout) where T : class
         {
             if(resultObj != default(T))
             {

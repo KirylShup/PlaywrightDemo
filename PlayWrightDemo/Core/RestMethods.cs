@@ -25,7 +25,7 @@ namespace PlayWrightDemo.Core
             {
                 if (authorizationToken != null)
                 {
-                    request.AddHeader("Authorization", "Bearer" + authorizationToken);
+                    request.AddHeader("Authorization", "Bearer " + authorizationToken);
                 }
                 else
                 {
@@ -191,7 +191,7 @@ namespace PlayWrightDemo.Core
         {
             var request = new RestRequest(Method.POST);
             request.AddParameter("grant_type", Configuration.Configuration.GrantTypePasswordFlow);
-            request.AddParameter("audience", Configuration.Configuration.Audience);
+            request.AddParameter("audience", "https://api.app.constructconnect.com"); // change config file, audience for M2M token and user-token are different
             request.AddParameter("client_id", Configuration.Configuration.ClientIdTakeoffDesktop);
             request.AddParameter("client_secret", Configuration.Configuration.ClientSecretTakeoffDesktop);
             request.AddParameter("scope", Configuration.Configuration.Scope);

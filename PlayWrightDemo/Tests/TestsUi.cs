@@ -7,6 +7,8 @@ using FluentAssertions;
 using PlayWrightDemo.TestData;
 using PlayWrightDemo.TestData.Models;
 using NUnit.Allure.Core;
+using NUnit.Allure.Attributes;
+using Allure.Commons;
 
 [assembly: LevelOfParallelism(2)]
 namespace PlayWrightDemo.Tests
@@ -17,6 +19,7 @@ namespace PlayWrightDemo.Tests
     public class TestsUi : BaseTestUi
     {
         [Test]
+        [AllureSeverity(SeverityLevel.critical)]
         public async Task SampleOfUITest()
         {
             var user = UserData.GetUser("stagingUser");
