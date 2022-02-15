@@ -27,8 +27,8 @@ namespace PlayWrightDemo.TestData
         {
             FirstName = "test",
             LastName = "user",
-            Email = "kiryl_user_75950929@mail.com",
-            DefaultPassword = "CConnect123",
+            Email = "", // "fill email here"
+            DefaultPassword = "", // "fill password here"
             Status = "Active",
         };
     }

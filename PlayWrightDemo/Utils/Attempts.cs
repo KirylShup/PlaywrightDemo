@@ -32,7 +32,7 @@ namespace PlayWrightDemo.Utils
                         {
                             if (result != null)
                             {
-                                return obj;
+                                return obj; // else throw new exception condition func should be of bool type
                             }
                         }
                     }
