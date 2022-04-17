@@ -13,7 +13,7 @@ namespace PlayWrightDemo.APIRepository.Endpoints
 
         public Response<List<GetRolesInMyOrgDto>> GetRolesInMyOrg (string userToken)
         {
-            return CoreClient.Instance(URL + @"/my/organization/roles").Get<List<GetRolesInMyOrgDto>>(useToken: true, authorizationToken: userToken);
+            return CoreClient.Instance().Get<List<GetRolesInMyOrgDto>>(URL + @"/my/organization/roles", useToken: true, authorizationToken: userToken);
         }
     }
 }

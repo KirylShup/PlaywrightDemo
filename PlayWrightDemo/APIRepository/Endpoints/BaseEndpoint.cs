@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace PlayWrightDemo.APIRepository.Endpoints
+﻿namespace PlayWrightDemo.APIRepository.Endpoints
 {
     public class BaseEndpoint
     {

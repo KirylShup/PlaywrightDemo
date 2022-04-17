@@ -22,7 +22,7 @@ namespace PlayWrightDemo.Tests
         [AllureSeverity(SeverityLevel.critical)]
         public void SampleOfApiTestForEntitlements()
         {
-            var token = CoreClient.Instance(Configuration.Configuration.AuthUrlStaging).GetM2MToken();
+            var token = CoreClient.Instance().GetM2MToken(Configuration.Configuration.AuthUrlStaging);
             Assert.IsTrue(token.RestResponse.StatusCode == HttpStatusCode.OK);
 
             var organization = EntitlementsEndpoint.Instance.CreateOrganization(new OrganizationBody(), token.Body.AccessToken);
@@ -38,7 +38,7 @@ namespace PlayWrightDemo.Tests
         public void SampleOfApiTestForAccessManagement()
         {
             var user = UserData.GetUser("stagingUser");
-            var token = CoreClient.Instance(Configuration.Configuration.AuthUrlStaging).GetUserToken(user.Email, user.DefaultPassword);
+            var token = CoreClient.Instance().GetUserToken(Configuration.Configuration.AuthUrlStaging, user.Email, user.DefaultPassword);
             var response = Attempts.TryUntil(() =>
             {
                 return AccessManagement.Instance.GetRolesInMyOrg(token.Body.AccessToken);

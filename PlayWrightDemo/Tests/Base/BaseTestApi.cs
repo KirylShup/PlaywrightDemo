@@ -1,5 +1,4 @@
-﻿using NUnit.Allure.Attributes;
-using NUnit.Allure.Core;
+﻿using NUnit.Allure.Core;
 using NUnit.Framework;
 
 namespace PlayWrightDemo.Tests

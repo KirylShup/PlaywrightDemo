@@ -1,7 +1,4 @@
 ﻿using RestSharp;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace PlayWrightDemo.Core
 {
@@ -9,19 +6,19 @@ namespace PlayWrightDemo.Core
     {
         public RestClient Client { get; set; }  
 
-        public CoreClient (string endpoint)
+        public CoreClient ()
         {
-            Client = new RestClient (endpoint);
+            Client = new RestClient ();
         }
 
-        public static CoreClient Instance (string endpoint)
+        public static CoreClient Instance ()
         {
-            return new CoreClient (endpoint);
+            return new CoreClient ();
         }
 
-        public IRestResponse Execute (RestRequest request)
+        public RestResponse Execute (RestRequest request)
         {
-            IRestResponse response = Client.Execute(request);
+            RestResponse response = Client.ExecuteAsync(request).Result;
             return response;
         }
     }

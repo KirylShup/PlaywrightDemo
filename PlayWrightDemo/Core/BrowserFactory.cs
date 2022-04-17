@@ -18,6 +18,17 @@ namespace PlayWrightDemo.Core
         private static IBrowser browser;
         public static async Task<IBrowser> Instance()
         {
+            // Browsers installation
+            Console.WriteLine("Installing browsers");
+            var exitCode = Microsoft.Playwright.Program.Main(new[] { "install" });
+            if (exitCode != 0)
+            {
+                Console.WriteLine("Failed to install browsers");
+                Environment.Exit(exitCode);
+            }
+            Console.WriteLine("Browsers installed");
+            // End of browsers installation
+
             var playwright = await Playwright.CreateAsync();
             Browser engine = (Browser)Enum.Parse(typeof(Browser), Configuration.Configuration.Browser);
             if (browser == null)

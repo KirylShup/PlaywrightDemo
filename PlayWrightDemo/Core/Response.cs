@@ -7,16 +7,18 @@ namespace PlayWrightDemo.Core
     public class Response <T> where T : class
     {
         public T Body { get; private set; }
-        public IRestResponse RestResponse { get; private set; }
-        public Response(IRestResponse restResponse)
+        public RestResponse RestResponse { get; private set; }
+        public Response(RestResponse restResponse)
         {
             RestResponse = restResponse;
             try
             {
                 Body = JsonConvert.DeserializeObject<T>(restResponse.Content);
             }
-            catch (Exception) { }
+            catch (Exception ex) 
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
-
     }
 }
